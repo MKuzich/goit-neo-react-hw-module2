@@ -1,11 +1,6 @@
 import css from "./Options.module.css";
 
-const Options = ({
-  feedback,
-  updateFeedback,
-  totalFeedback,
-  resetFeedback,
-}) => {
+const Options = ({ feedback, updateFeedback, resetFeedback }) => {
   return (
     <ul className={css.list}>
       {Object.keys(feedback).map((option) => (
@@ -15,7 +10,7 @@ const Options = ({
           </button>
         </li>
       ))}
-      {totalFeedback > 0 && (
+      {feedback.good + feedback.neutral + feedback.bad > 0 && (
         <li>
           <button className={css.button} onClick={resetFeedback}>
             Reset
