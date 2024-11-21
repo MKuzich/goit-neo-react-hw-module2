@@ -1,6 +1,6 @@
 import FeedbackItem from "../FeedbackItem/FeedbackItem";
 
-const Feedback = ({ feedback }) => {
+const Feedback = ({ feedback, positiveFeedback }) => {
   return (
     <ul>
       {Object.entries(feedback).map(([option, count]) => (
@@ -15,16 +15,7 @@ const Feedback = ({ feedback }) => {
         />
       </li>
       <li>
-        <FeedbackItem
-          option="positive"
-          count={
-            Math.round(
-              (feedback.good /
-                (feedback.good + feedback.neutral + feedback.bad)) *
-                100
-            ) + "%"
-          }
-        />
+        <FeedbackItem option="positive" count={positiveFeedback + "%"} />
       </li>
     </ul>
   );

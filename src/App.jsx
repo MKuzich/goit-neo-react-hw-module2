@@ -44,7 +44,14 @@ function App() {
         resetFeedback={resetFeedback}
       />
       {feedback.good + feedback.neutral + feedback.bad > 0 ? (
-        <Feedback feedback={feedback} />
+        <Feedback
+          feedback={feedback}
+          positiveFeedback={Math.round(
+            (feedback.good /
+              (feedback.good + feedback.neutral + feedback.bad)) *
+              100
+          )}
+        />
       ) : (
         <Notification />
       )}
